@@ -3,5 +3,5 @@ class Comment < ActiveRecord::Base
   has_many :votes
   belongs_to :commenter, :class_name => 'User'
 
-  validates :text, presence: true
+  validates :body, presence: true
 end
