@@ -1,5 +1,7 @@
 <footer>
-  <iframe src="https://giphy.com/embed/sWrDT2OqxJ3Fu" width="280" height="153" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><a href="https://giphy.com/gifs/sWrDT2OqxJ3Fu"></a>
+  <div>
+    <iframe src="https://giphy.com/embed/sWrDT2OqxJ3Fu" width="280" height="153" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><a href="https://giphy.com/gifs/sWrDT2OqxJ3Fu"></a>
+  </div>
 </footer>
 <h1 align="center">Welcome to DB:Seed Overflow</h1>
 <div class="questions">
@@ -9,3 +11,11 @@
     Answers: <%= q.answers.count %><br>
   <% end %>
 </div>
+
+<form action="/users" method="get">
+  <input type="submit" value="Log In">
+</form>
+
+<form action="/users/new" method="get">
+  <input type="submit" value="Sign Up">
+</form>
