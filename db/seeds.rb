@@ -13,11 +13,26 @@ end
 5.times do Answer.create(question_id: rand(1..5), body: Faker::Lorem.sentence, responder_id: rand(1..5))
 end
 
-5.times do Comment.create(user_id: rand(1..5), body: Faker::Lorem.sentence)
+Answer.all.each do |answer|
+  5.times do
+    answer.comments.create(user_id: rand(1..5), body: Faker::Lorem.sentence)
+  end
+  rand(1..10).times do
+    answer.votes.create(user_id: rand(1..5), value: 1)
+  end
+  rand(1..10).times do
+    answer.votes.create(user_id: rand(1..5), value: -1)
+  end
 end
 
-3.times do Vote.create(user_id: rand(1..5), value: 1)
-end
-
-2.times do Vote.create(user_id: rand(1..5), value: -1)
+Question.all.each do |question|
+  5.times do
+    question.comments.create(user_id: rand(1..5), body: Faker::Lorem.sentence)
+  end
+  rand(1..10).times do
+    question.votes.create(user_id: rand(1..5), value: 1)
+  end
+  rand(1..10).times do
+    question.votes.create(user_id: rand(1..5), value: -1)
+  end
 end

@@ -3,8 +3,9 @@
 </footer>
 <h1 align="center">Welcome to DB:Seed Overflow</h1>
 <div class="questions">
-  Sup fam
   <% Question.all.each do |q| %>
-    <a href="show question"><%= q.title %></a>
+    <a href="show question"><%= q.title %></a><br>
+    Score: <%= q.votes.reduce(0) { |sum, vote| sum += vote.value } %><br>
+    Answers: <%= q.answers.count %><br>
   <% end %>
 </div>
