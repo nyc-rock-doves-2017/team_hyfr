@@ -20,7 +20,7 @@
 <body>
   <a href='/'>Homepage</a>
   <% if logged_in? %>
-    <h4>Hello <%= current_user.name %> - <a href='/logout'>Logout</a></h4>
+    <h4>Hello <%= current_user.name %> - <a href='/logout'>Logout</a> | <a href="/questions/new">Create Question</a></h4>
   <% else %>
     <form action="/users" method="get">
       <input type="submit" value="Log In">
