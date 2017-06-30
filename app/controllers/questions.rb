@@ -13,5 +13,8 @@ get '/questions/:id' do
 end
 
 delete '/questions/:id' do
-  # erb questions/_delete
+  puts "*" *100
+  question = Question.find_by(id: params[:id])
+  question.destroy!
+  redirect "/users/#{session[:user_id]}"
 end

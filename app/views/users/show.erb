@@ -1,0 +1,14 @@
+<footer>
+  <div>
+  <iframe src="https://giphy.com/embed/Cmr1OMJ2FN0B2" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/hello-Cmr1OMJ2FN0B2">via GIPHY</a></p>
+  </div>
+</footer>
+<h1 align="center"> Welcome <%= @user.name %> </h1>
+<div class="questions">
+  <% @user.questions.each do |q| %>
+    <a href="/questions/<%= q.id %>"><%= q.title %></a> | <%= erb :'/questions/_delete', locals: {q: q}%>
+    <br>
+    Score: <%= q.votes.reduce(0) { |sum, vote| sum += vote.value } %><br>
+    Answers: <%= q.answers.count %><br>
+  <% end %>
+</div>

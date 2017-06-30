@@ -2,6 +2,15 @@ get '/' do
   erb :'/index'
 end
 
+get '/users/:id' do
+  if logged_in?
+    @user = User.find_by(id: session[:user_id])
+    erb :'users/show'
+  else
+    erb :'/index'
+  end
+end
+
 get '/users' do
   erb :'/users/sessions', layout: false
 end
@@ -18,7 +27,7 @@ end
 post '/sessions' do
   if User.authenticate(params[:user])
     session[:user_id] = User.find_by(email: params[:user][:email]).id
-    redirect '/'
+    redirect "/users/#{session[:user_id]}"
   else
     "Login Failed"
   end
