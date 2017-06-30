@@ -24,7 +24,7 @@
       Hello, <%= current_user.name %> -
       <a href='/logout'>Logout</a> |
       <a href="/questions/new">Create Question</a> |
-      <a href="users/<%= session[:user_id] %>">Profile</a>
+      <a href="/users/<%= session[:user_id] %>">Profile</a>
     </h4>
   <% else %>
     <form action="/users" method="get">
