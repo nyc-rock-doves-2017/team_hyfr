@@ -5,7 +5,7 @@ def upvote_valid(post)
 
   if vote_array.empty?
     logger = current_user
-      post.votes.create(user_id: logger.id, value: 1)
+    post.votes.create(user_id: logger.id, value: 1)
     redirect back
   else
     redirect back
@@ -19,7 +19,7 @@ def downvote_valid(post)
 
   if vote_array.empty?
     logger = current_user
-      post.votes.create(user_id: logger.id, value: -1)
+    post.votes.create(user_id: logger.id, value: -1)
     redirect back
   else
     redirect back
@@ -27,31 +27,37 @@ def downvote_valid(post)
 end
 
 post '/posts/:id/vote' do
-  post = Question.find(params[:id])
+  post = Question.find_by(id: params[:id])
   upvote_valid(post)
+  # if upvote_valid(post)
+  #   redirect '/somewhere'
+  # else
+  #   status 402
+  #   @errors = ['Not logged in']
+  # end
 end
 
 post '/posts/:id/downvote' do
-  post = Question.find(params[:id])
+  post = Question.find_by(id: params[:id])
   downvote_valid(post)
 end
 
 post '/posts/:id/vote/answer' do
-  post = Answer.find(params[:id])
+  post = Answer.find_by(id: params[:id])
   upvote_valid(post)
 end
 
 post '/posts/:id/downvote/answer' do
-  post = Answer.find(params[:id])
+  post = Answer.find_by(id: params[:id])
   downvote_valid(post)
 end
 
 post '/posts/:id/vote/comment' do
-  post = Comment.find(params[:id])
+  post = Comment.find_by(id: params[:id])
   upvote_valid(post)
 end
 
 post '/posts/:id/downvote/comment' do
-  post = Comment.find(params[:id])
+  post = Comment.find_by(id: params[:id])
   downvote_valid(post)
 end
