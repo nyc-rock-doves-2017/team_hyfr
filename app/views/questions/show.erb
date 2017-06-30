@@ -22,7 +22,16 @@
   <form method="post" action="/posts/<%= ans.id %>/downvote/answer" class="inline">
     <button type="submit" name="submit_param" value="submit_value">👎</button>
   </form>
-<h4>Comments:</h4>
+<!-- Add Comment Button -->
+  <div>
+    <label>Add Comment</label>
+    <form action="/comments/<%= ans.id %>" method="post">
+      <textarea rows="4" cols="50" name="body" placeholder="Your comment here..."></textarea><br>
+      <input type="submit" value="Submit"><br>
+    </form>
+  </div>
+
+  <h4>Comments:</h4>
   <ul>
   <% ans.comments.each do |com| %>
     <li><%= com.body %></li>
@@ -39,3 +48,11 @@
   </ul>
   <% end %>
 </ul>
+
+<div>
+  <label>Your Answer</label>
+  <form action="/answers/<%= @question.id %>" method="post">
+    <textarea rows="4" cols="50" name="body" placeholder="Your response here..."></textarea><br>
+    <input type="submit" value="Submit"><br>
+  </form>
+</div>
