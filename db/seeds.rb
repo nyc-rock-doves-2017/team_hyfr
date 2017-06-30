@@ -10,7 +10,7 @@ end
 5.times do Question.create(user_id: rand(1..5), title: Faker::Lorem.word, body: Faker::Lorem.sentence)
 end
 
-5.times do Answer.create(question_id: rand(1..5), body: Faker::Lorem.sentence, responder_id: rand(1..5))
+50.times do Answer.create(question_id: rand(1..5), body: Faker::Lorem.sentence, responder_id: rand(1..5))
 end
 
 Answer.all.each do |answer|

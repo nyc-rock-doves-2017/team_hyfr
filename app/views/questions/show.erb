@@ -1,0 +1,16 @@
+<h2><%= @question.title %></h2>
+<p><%= @question.body %></p>
+<h3>Score:</h3>
+<p><%= @question.votes.reduce(0) { |sum, vote| sum += vote.value } %></p>
+<h3>Answers:</h3>
+<ul>
+  <% @question.answers.each do |ans| %>
+  <li><h3><%= ans.body %></h3></li>
+<h4>Comments:</h4>
+  <ul>
+  <% ans.comments.each do |com| %>
+    <li><%= com.body %></li>
+  <% end %>
+  </ul>
+  <% end %>
+</ul>

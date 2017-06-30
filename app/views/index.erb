@@ -6,16 +6,8 @@
 <h1 align="center">Welcome to DB:Seed Overflow</h1>
 <div class="questions">
   <% Question.all.each do |q| %>
-    <a href="show question"><%= q.title %></a><br>
+    <a href="/questions/<%= q.id %>"><%= q.title %></a><br>
     Score: <%= q.votes.reduce(0) { |sum, vote| sum += vote.value } %><br>
     Answers: <%= q.answers.count %><br>
   <% end %>
 </div>
-
-<form action="/users" method="get">
-  <input type="submit" value="Log In">
-</form>
-
-<form action="/users/new" method="get">
-  <input type="submit" value="Sign Up">
-</form>

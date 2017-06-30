@@ -11,7 +11,9 @@ post '/questions' do
 end
 
 get '/questions/:id' do
-  # erb: show
+  puts params
+  @question = Question.find_by(id: params[:id])
+  erb :"questions/show"
 end
 
 delete '/questions/:id' do
