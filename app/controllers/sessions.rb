@@ -3,7 +3,7 @@ get '/' do
 end
 
 get '/users' do
-  erb :'/users/sessions'
+  erb :'/users/sessions', layout: false
 end
 
 get '/users/new' do
