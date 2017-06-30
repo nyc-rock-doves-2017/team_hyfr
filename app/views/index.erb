@@ -1,13 +1,25 @@
+<body>
 <footer>
-  <div>
-    <iframe src="https://giphy.com/embed/sWrDT2OqxJ3Fu" width="280" height="153" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><a href="https://giphy.com/gifs/sWrDT2OqxJ3Fu"></a>
+  <div align="center">
+    <iframe src="https://giphy.com/embed/sWrDT2OqxJ3Fu" width="280" height="153" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><a id="cat" href="https://giphy.com/gifs/sWrDT2OqxJ3Fu"></a>
   </div>
 </footer>
+<style>
+  body {
+    background-color: lightblue;
+  }
+  a.questions {
+    border: 2px solid orange;
+    margin: 5px;
+  }
+</style>
 <h1 align="center">Welcome to DB:Seed Overflow</h1>
-<div class="questions">
+<div align="center" class="questions">
   <% Question.all.each do |q| %>
-    <a href="/questions/<%= q.id %>"><%= q.title %></a><br>
+    <a class="questions" href="/questions/<%= q.id %>"><%= q.title %></a><br>
     Score: <%= q.votes.reduce(0) { |sum, vote| sum += vote.value } %><br>
     Answers: <%= q.answers.count %><br>
+    <br>
   <% end %>
 </div>
+</body>

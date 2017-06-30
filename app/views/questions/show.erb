@@ -1,9 +1,22 @@
-<h2><%= @question.title %></h2>
-<p><%= @question.body %></p>
-<form method="post" action="/posts/<%= @question.id %>/vote" class="inline">
+<br>
+<br>
+<body>
+  <style>
+  body{
+    background-color: lightblue;
+  }
+  form{
+    display: inline;
+    align: center;
+  }
+  </style>
+
+<h2 align="center"><%= @question.title %></h2>
+<p align="center"><%= @question.body %></p>
+<form align="center" method="post" action="/posts/<%= @question.id %>/vote" class="inline">
   <button type="submit" name="submit_param" value="submit_value">👍</button>
 </form>
-<form method="post" action="/posts/<%= @question.id %>/downvote" class="inline">
+<form align="center" method="post" action="/posts/<%= @question.id %>/downvote" class="inline">
   <button type="submit" name="submit_param" value="submit_value">👎</button>
 </form>
 <h3>Score:</h3>
@@ -48,6 +61,8 @@
   </ul>
   <% end %>
 </ul>
+
+</body>
 
 <div>
   <label>Your Answer</label>
