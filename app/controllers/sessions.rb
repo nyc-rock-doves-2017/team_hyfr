@@ -2,6 +2,10 @@ get '/' do
   erb :'/index'
 end
 
+get '/users/new' do
+  erb :'/users/new', layout: false
+end
+
 get '/users/:id' do
   if logged_in?
     @user = User.find_by(id: session[:user_id])
@@ -15,9 +19,6 @@ get '/users' do
   erb :'/users/sessions', layout: false
 end
 
-get '/users/new' do
-  erb :'/users/new', layout: false
-end
 
 post '/users' do
   User.create(params[:user])
