@@ -13,6 +13,8 @@ gem 'pry'
 gem 'rake'
 gem 'bcrypt'
 gem 'shotgun', '~>0.9.1'
+gem 'materialize-sass'
+gem 'sass-rails', '~> 5.0'
 
 group :test do
   gem 'shoulda-matchers'
